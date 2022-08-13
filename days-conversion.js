@@ -1,18 +1,24 @@
 'use strict';
-const yourYear = document.getElementById("your-year");
-const yourMonth = document.getElementById("your-month");
+// 要素の取得
 const yourDate = document.getElementById("your-date");
 const sunameriButton = document.getElementById("sunameri");
 const includeOrNot = document.getElementById("form");
 const daysAfter = document.getElementById("days");
 
+// ボタンを押したら
 sunameriButton.onclick = function () {
-  const inputYearValue = yourYear.value;
-  const inputMonthValue = yourMonth.value;
-  const inputDateValue = yourDate.value;
-  const inputDayAfter = daysAfter.value;
-  const output = `入力された内容は「${inputYearValue} 年 ${inputMonthValue} 月 ${inputDateValue} 日 の ${inputDayAfter} 日後」です。`;
+  let inputYourDateValue = yourDate.value; // 入力された「日」
+  let inputDayAfter = daysAfter.value;  // 入力された「〇日後」
+
+  const calc = new Date(inputYourDateValue);
+
+
+
+// スナメリの回答
+const output = `入力された内容は「${calc} 日後」です。`;
   document.getElementById("output-message").innerText = output;
+
+  // 起点になる日の選択
   let radioList = includeOrNot.choice;
   let include = radioList.value;
   if (include === "") { // 未選択状態
