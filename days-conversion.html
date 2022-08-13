@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,16 +8,37 @@
   <title>日数換算しまスナメリさん</title>
   <link rel="stylesheet" href="days-conversion.css">
 </head>
+
 <body>
-  <hr><center><h1>日数換算しまスナメリさん</h1></center>
-  <center><h1>日数換算しまスナメリさん</h1></center>
-<center><p>起点（はじまり）になる日を入力してください</p></center>
-  <input type="color" id="days" size= "40" maxlength="20"/>
-  <br>
-  <input type="submit" value="include" id="include" size= 40px>
-  <p>含める or 含めない</p>
-  <p>日前 or 日後</p>
-  <script src="">days-conversion.js</script>
-  
+  <h1>日数換算しまスナメリさん</h1>
+  <p>起点（はじまり）になる日を入力してください。</p>
+
+  <form id="form" action="#">
+    西暦 <input type="text" id="your-year" size="3" maxlength="4" /> 年
+    <input type="text" id="your-month" size="2" maxlength="2" /> 月
+    <input type="text" id="your-date" size="2" maxlength="2" /> 日
+    <hr>
+
+    <p>選んでください。</p>
+    <div>
+      <input type="radio" id="include" name="choice" value="include">起点になる日を含める
+    </div>
+    <div>
+      <input type="radio" id="noinclude" name="choice" value="noinclude">起点になる日を含めない
+    </div>
+    <hr>
+    <input type="text" id="days" size="5" maxlength="5"> 日後
+    <hr>
+    </form>
+
+    <div id="output-message"></div>
+    <div id="choices"></div>
+    <br>
+    <button id="sunameri">教えて スナメリさん</button>
+
+  <script src="days-conversion.js"></script>
+  <!--<p id="today"></p>-->
+  <!--<p>含める or 含めない</p>-->
+  <!--<p>日前 or 日後</p>-->
 </body>
 </html>
