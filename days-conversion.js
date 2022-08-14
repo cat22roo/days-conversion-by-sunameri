@@ -29,4 +29,5 @@ sunameriButton.onclick = function () {
   const answer = date.toLocaleDateString(); // 例)2017/5/18
   const output = `${inputDayAfter}日後は「${answer} 」です。`;
   document.getElementById("output-message").innerText = output;
+  document.getElementById("output-message").classList.add("voice");
 };
