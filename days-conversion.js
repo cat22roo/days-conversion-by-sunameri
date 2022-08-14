@@ -7,15 +7,25 @@ const daysAfter = document.getElementById("days");
 
 // ボタンを押したら
 sunameriButton.onclick = function () {
-  let inputYourDateValue = yourDate.value; // 入力された「日」
-  let inputDayAfter = daysAfter.value;  // 入力された「〇日後」
+  // 入力欄 1を取得「日付」
+  const inputYourDateValue = yourDate.value;
 
-  const calc = new Date(inputYourDateValue);
+  // 入力欄 2を取得「〇日後」
+  const inputDayAfter = daysAfter.value;
+  const num = parseInt(inputDayAfter);
+  const date = new Date(inputYourDateValue);
+  date.setDate(date.getDate() + num);
+  console.log(date.toLocaleDateString()); // 例)2017/5/18
+
+  
+
+  
+
 
 
 
 // スナメリの回答
-const output = `入力された内容は「${calc} 日後」です。`;
+const output = `入力された内容は「${date} 」です。`;
   document.getElementById("output-message").innerText = output;
 
   // 起点になる日の選択
@@ -26,6 +36,7 @@ const output = `入力された内容は「${calc} 日後」です。`;
     document.getElementById("choices").innerText = include;
   }
 };
+
 
 
 
