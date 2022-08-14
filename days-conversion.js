@@ -13,20 +13,12 @@ sunameriButton.onclick = function () {
   // 入力欄 2を取得「〇日後」
   const inputDayAfter = daysAfter.value;
   const num = parseInt(inputDayAfter);
+
+  // 加算
   const date = new Date(inputYourDateValue);
   date.setDate(date.getDate() + num);
-  console.log(date.toLocaleDateString()); // 例)2017/5/18
-
+  const answer = date.toLocaleDateString(); // 例)2017/5/18
   
-
-  
-
-
-
-
-// スナメリの回答
-const output = `入力された内容は「${date} 」です。`;
-  document.getElementById("output-message").innerText = output;
 
   // 起点になる日の選択
   let radioList = includeOrNot.choice;
@@ -34,7 +26,14 @@ const output = `入力された内容は「${date} 」です。`;
   if (include === "") { // 未選択状態
     } else {
     document.getElementById("choices").innerText = include;
-  }
+  }  
+
+
+// スナメリの回答
+  const output = `${inputDayAfter}日後は「${answer} 」です。`;
+  document.getElementById("output-message").innerText = output;
+
+
 };
 
 
