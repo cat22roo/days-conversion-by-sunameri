@@ -5,8 +5,8 @@ const includeOrNot = document.getElementById("form"); // 選択肢
 const daysAfter = document.getElementById("days"); // 入力欄 2
 const sunameriButton = document.getElementById("sunameri"); // スナメリさんに聞くボタン
 const voiceArea = document.getElementById("output-message"); // 回答エリア
-const resetBtn = document.getElementById("reset");
-resetBtn.style.display = "none";
+const resetBtn = document.getElementById("reset"); // リセットボタン
+resetBtn.style.display = "none"; // デフォルトは非表示
 
 // ボタンを押したら
 sunameriButton.onclick = function () {
@@ -37,22 +37,17 @@ sunameriButton.onclick = function () {
   // スナメリの回答
   const answer = date.toLocaleDateString(); // 例)2017/5/18
   const output = `${inputDayAfter}日後は「${answer} 」です。`;
-
-  // voiceArea.innerText = '';
+  voiceArea.innerText = ''; // 一度カラにする
   const header = document.createElement('h1');
   header.innerText = output;
   voiceArea.classList.add("voice");
   voiceArea.appendChild(header);
+  resetBtn.style.display = "block"; // リセットボタン表示
 
-  resetBtn.style.display = "block";
-
-
+  // リセットボタンの処理
   resetBtn.onclick = function () {
     voiceArea.appendChild(header).remove();
     voiceArea.classList.remove("voice");
     resetBtn.style.display = "none";
-    };
-
-
+  };
 };
-
