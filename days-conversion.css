@@ -18,36 +18,60 @@ button{
 
 /* 吹き出し本体 */
 .voice{
+  float: left;
+  display: flex;
   position: relative;
   padding: 20px;
   width: fit-content;
   height: 30px;
   align-items: center;
-  display:flex;
   background-color: #f5f79a;
   border-radius: 50px;
 }
 /* 大きい丸 */
 .voice::before{
+  float: left;
+  display: flexbox;
   content: '';
   position: absolute;
   display: block;
   border-radius: 50%;
   background-color: #f5f79a;
-  top: -35px;
+  top: -30px;
   bottom: 15px;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 /* 小さい丸 */
 .voice::after{
+  float: left;
+  display: flexbox;
   content: '';
   position: absolute;
   display: block;
   border-radius: 50%;
   background-color: #f5f79a;
-  top: -55px;
+  top: -50px;
   bottom: 10px;
   width: 15px;
   height: 15px;
 }
+
+/* リセットボタン 
+.reset{
+  float: right;
+  display: flex;
+  width: 12 px;
+  height: 50px;
+  margin-left: auto;
+  padding: 0px 24px;
+  outline: 0;
+  border: none;
+  border-radius: 50px;
+  background-color: rgb(0, 255, 85);
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #222;
+}
+*/

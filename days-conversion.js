@@ -1,9 +1,11 @@
 'use strict';
 // 要素の取得
 const yourDate = document.getElementById("your-date"); // 入力欄 1
-const includeOrNot = document.getElementById("form");// 選択肢
-const daysAfter = document.getElementById("days");// 入力欄 2
-const sunameriButton = document.getElementById("sunameri");
+const includeOrNot = document.getElementById("form"); // 選択肢
+const daysAfter = document.getElementById("days"); // 入力欄 2
+const sunameriButton = document.getElementById("sunameri"); // スナメリさんに聞くボタン
+const voiceArea = document.getElementById("output-message"); // 回答エリア
+// const resetBtn = document.getElementById("reset");
 
 // ボタンを押したら
 sunameriButton.onclick = function () {
@@ -25,9 +27,20 @@ sunameriButton.onclick = function () {
   } else {
   }
 
+  // 回答がカラの場合は、アラートを表示して処理を終了
+  if (inputYourDateValue === "" || include === "" || inputDayAfter === "") {
+    alert("正しく入力できていません");
+    return;
+  }
+
   // スナメリの回答
   const answer = date.toLocaleDateString(); // 例)2017/5/18
   const output = `${inputDayAfter}日後は「${answer} 」です。`;
-  document.getElementById("output-message").innerText = output;
-  document.getElementById("output-message").classList.add("voice");
+  voiceArea.innerText = output;
+  voiceArea.classList.add("voice");
 };
+
+/*resetBtn.onclick = function () {
+  // alert("クリックされました");
+  voiceDivided.remove();
+};*/
