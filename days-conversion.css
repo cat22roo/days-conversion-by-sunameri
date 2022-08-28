@@ -65,14 +65,12 @@ button{
   font-family: 'Kaisei Opti', serif;
   color: rgb(19, 13, 110);
   text-align: center;
-  display:flex;
   font-weight: bolder;
 }
 
 /* リセットボタン */
 .reset{
   float: right;
-  display: flex;
   width: 12 px;
   height: 50px;
   margin-left: auto;
@@ -87,3 +85,81 @@ button{
   font-weight: 500;
   color: rgb(241, 236, 236);
 }
+
+/*スナメリ*/
+.family{
+  position: relative;
+  margin-bottom: 10%;
+
+}
+/*大スナメリ*/
+.family .big{
+  position: absolute;
+  left: 0;
+  transform-origin:top;
+  -webkit-transform-origin:top;
+  -moz-transform-origin:top;
+  animation:big ease-in-out 3s infinite alternate;
+  -webkit-animation:big ease-in-out 3s infinite alternate;
+  -moz-animation:big ease-in-out 3s infinite alternate;
+ }
+  @keyframes big{
+    0%   { transform: rotate(5deg); }
+    100% { transform: rotate(-5deg); }
+  }
+  @-webkit-keyframes big{
+    0%   { -webkit-transform: rotate(5deg); }
+    100% { -webkit-transform: rotate(-5deg); }
+  }
+  @-moz-keyframes big{
+    0%   { -moz-transform: rotate(5deg); }
+    100% { -moz-transform: rotate(-5deg); }
+  }
+/*中スナメリ*/
+.family .middle {
+  position: absolute;
+  top: -500px;
+  left: 20%;
+  animation:middle ease-in-out 35s infinite alternate;
+  -webkit-animation:middle ease-in-out 35s infinite alternate;
+  -moz-animation:middle ease-in-out 35s infinite alternate;
+}
+  @keyframes middle{
+    0%   { top: -500px; left: 20%; }
+    40%  { top: -200px; left: 50%; }
+    60%  { transform: scale(-1); left: 70%;}
+    100% { top: 100px; left: 20%; }
+  }
+  @-webkit-keyframes middle{
+    0%   { top: -500px; left: 15%; }
+    40%  { top: -200px; left: 50%; }
+    60%  { transform: scale(-1);  left: 70%;}
+    100% { top: 100px; left: 20%; }
+  }
+  @-moz-keyframes middle{
+    0%   { top: -500px; left: 15%; }
+    40%  { top: -200px; left: 50%; }
+    60%  { transform: scale(-1);  left: 70%;}
+    100% { top: 100px; left: 20%; }
+  }
+/*小スナメリ*/
+.family .small{
+  position: absolute;
+  top:-150PX;
+  right: 0;
+  animation:small ease-in-out 5s infinite alternate;
+  -webkit-animation:small ease-in-out 5s infinite alternate;
+  -moz-animation:small ease-in-out 5s infinite alternate;
+}
+  @keyframes small{
+    0%   { transform:translate(0%, 0%); }
+    100% { transform:translate(0%, -100px); }
+  }
+  @-webkit-keyframes small{
+    0%   { -webkit-transform:translate(0%, 0%); }
+    100% { -webkit-transform:translate(0%, -100px); }
+  }
+  @-moz-keyframes small{
+    0%   { -moz-transform:translate(0%, 0%); }
+    100% { -moz-transform:translate(0%, -100px); }
+  }
