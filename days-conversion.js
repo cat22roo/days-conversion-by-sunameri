@@ -27,6 +27,12 @@ sunameriButton.onclick = function () {
     date.setDate(date.getDate() - 1);
   } else {
   }
+  
+  // 0 がキーボード入力できてしまうので、アラートを表示し処理中断
+  if (num === 0) {
+    alert("0 は数える意味がありません");
+    return;
+  }
 
   // 回答がカラの場合は、アラートを表示して処理を終了
   if (inputYourDateValue === "" || include === "" || inputDayAfter === "") {
