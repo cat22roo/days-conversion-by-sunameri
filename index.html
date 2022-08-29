@@ -28,7 +28,12 @@
     </div>
     <hr />
     <p>半角で入力してください。</p>
-    <input type="number" id="days" min="1" step="1" size="5" maxlength="5" /> 日後
+    <input type="number" id="days" min="1" step="1" size="5" maxlength="5" /> 
+    <br />
+    <select id="after-ago">
+      <option value="ago">日前</option>
+      <option value="after">日後</option>
+    </select>
     <hr />
   </form>
   <button id="sunameri">教えて スナメリさん</button>
@@ -36,9 +41,9 @@
     <img class="big" src= "images/big_sna.png" alt="大スナメリ">
     <img class="middle" src="images/middle_suna.png" alt="中スナメリ">
     <img class="small" src="images/small_suna.png" width="110px" height="90px" alt="小スナメリ">
-   </div>
-   <div id="output-message" class="message"></div>
-   <input type="button" id="reset" value="やり直す" class="reset" />
+  </div>
+  <div id="output-message" class="message"></div>
+  <input type="button" id="reset" value="やり直す" class="reset" />
   <script src="days-conversion.js"></script>
 </body>
 </html>
