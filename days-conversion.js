@@ -1,12 +1,13 @@
 'use strict';
 // 要素の取得
-const yourDate = document.getElementById("your-date"); // 入力欄 1（日付）
-const includeOrNot = document.getElementById("form"); // 選択肢（含める/含めない）
-const daysAfter = document.getElementById("days"); // 入力欄 2（〇日後）
-const sunameriButton = document.getElementById("sunameri"); // 「スナメリさんに聞く」ボタン
-const voiceArea = document.getElementById("output-message"); // 回答エリア
-const resetBtn = document.getElementById("reset"); // リセットボタン
-resetBtn.style.display = "none"; // デフォルトはリセットボタン非表示
+const yourDate = document.getElementById('your-date'); // 入力欄 1（日付）
+const includeOrNot = document.getElementById('form'); // 選択肢（含める/含めない）
+const daysAfter = document.getElementById('days'); // 入力欄 2（〇日後）
+const sunameriButton = document.getElementById('sunameri'); // 「スナメリさんに聞く」ボタン
+const voiceArea = document.getElementById('output-message'); // 回答エリア
+const resetBtn = document.getElementById('reset'); // リセットボタン
+resetBtn.style.display = 'none'; // デフォルトはリセットボタン非表示
+const tweetDivided = document.getElementById('tweet-area');
 
 // 「スナメリさんに聞く」ボタンを押したら
 sunameriButton.onclick = function () {
@@ -23,21 +24,21 @@ sunameriButton.onclick = function () {
   // 減算（起点になる日が含まれる場合）
   const radioList = includeOrNot.choice;
   const include = radioList.value;
-  if (include === "include") {
+  if (include === 'include') {
     date.setDate(date.getDate() - 1);
   } else {
-      ;  // 何もしない
+    ;  // 何もしない
   }
 
   // 0 の場合は、アラート表示し処理を中断
   if (num === 0) {
-    alert("0 は数える意味がありません");
+    alert('0 は数える意味がありません');
     return;
   }
 
   // 回答がカラの場合は、アラートを表示して処理を終了
-  if (inputYourDateValue === "" || include === "" || inputDayAfter === "") {
-    alert("正しく入力できていません");
+  if (inputYourDateValue === '' || include === '' || inputDayAfter === '') {
+    alert('正しく入力できていません');
     return;
   }
 
@@ -47,14 +48,34 @@ sunameriButton.onclick = function () {
   voiceArea.innerText = ''; // 一度カラにする
   const header = document.createElement('h1');
   header.innerText = output;
-  voiceArea.classList.add("voice");
+  voiceArea.classList.add('voice');
   voiceArea.appendChild(header);
-  resetBtn.style.display = "block"; // リセットボタン表示
+  resetBtn.style.display = 'block'; // リセットボタン表示
 
   // リセットボタンの処理
   resetBtn.onclick = function () {
     voiceArea.appendChild(header).remove();
-    voiceArea.classList.remove("voice"); // スナメリの回答を削除
-    resetBtn.style.display = "none"; // リセットボタン非表示
+    voiceArea.classList.remove('voice'); // スナメリの回答を削除
+    resetBtn.style.display = 'none'; // リセットボタン非表示
   };
+
+  // ツイートエリア
+  tweetDivided.innerText = '';
+  const anchor = document.createElement('a');
+  const hrefValue =
+    'https://twitter.com/intent/tweet?button_hashtag=' + encodeURIComponent('日数換算しまスナメリさん') + '&ref_src=twsrc%5Etfw';
+  anchor.setAttribute('href', hrefValue);
+  anchor.classList.add('twitter-hashtag-button');
+  anchor.classList.add('tweet');
+  anchor.setAttribute('class', 'twitter-hashtag-button');
+
+  anchor.setAttribute('data-text', output);
+  anchor.innerText = 'Tweet #日数換算しまスナメリさん';
+  tweetDivided.appendChild(anchor);
+
+  // widgets.js の設定
+  const script = document.createElement('script');
+  script.setAttribute('src', 'https://platform.twitter.com/widgets.js');
+  tweetDivided.appendChild(script);
 };
+

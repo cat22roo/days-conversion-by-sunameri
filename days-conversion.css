@@ -162,3 +162,10 @@ button{
     0%   { -moz-transform:translate(0%, 0%); }
     100% { -moz-transform:translate(0%, -100px); }
   }
+
+/*ツイートエリア*/
+.tweet{
+  margin : 30px ;
+  padding : 20px ;
+  text-align: center;
+}
